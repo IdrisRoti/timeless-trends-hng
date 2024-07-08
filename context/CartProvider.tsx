@@ -35,7 +35,7 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
       setCart(updatedCart);
       localStorage.setItem('cart', JSON.stringify(updatedCart));
     } else {
-      updatedCart = [...cart, { ...product, quantity: 1, incart: true, checkout: true }];
+      updatedCart = [...cart, { ...product, quantity: 1}];
       setCart(updatedCart);
       localStorage.setItem('cart', JSON.stringify(updatedCart));
     }
