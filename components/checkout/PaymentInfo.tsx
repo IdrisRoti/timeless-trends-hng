@@ -27,7 +27,7 @@ export default function PaymentInfo() {
   }
   
   return (
-    <section className='md:col-span-4 bg-[#E5E6EA] max-h-fit  pb-2'>
+    <section className='md:col-span-4 bg-[#E5E6EA] max-h-fit  pb-2 overflow-x-hidden'>
       <h2 className='font-semibold pt-4 pb-2.5 px-5 text-3xl md:text-4xl text-[#333]'>
         Payment Info
       </h2>

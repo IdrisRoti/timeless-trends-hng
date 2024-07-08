@@ -35,7 +35,7 @@ export default function OrderSummary() {
       {/* shipping info */}
       <div className="px-10 mt-7 mb-6">
         <h2 className="text-2xl font-bold mb-4">Shipping info</h2>
-        <p className="text-sm sm:text-base md:text-lg h-[11.65rem] max-lg:max-w-[60%] max-md:max-w-[80%] max-sm:max-w-[100%]">
+        <p className="text-sm sm:text-base xl:text-lg h-[11.65rem] max-lg:max-w-[60%] max-md:max-w-[80%] max-sm:max-w-[100%]">
           Modern shipping containers revolutionized the global trade industry.
           Introduced in the 1950s, these standardized containers drastically
           reduced shipping times and costs
@@ -47,7 +47,7 @@ export default function OrderSummary() {
           href={cart.length > 0 ? "/checkout" : "/"}
           className="block font-medium text-lg text-center bg-black text-white uppercase w-full p-2.5 hover:opacity-80 duration-500"
         >
-          {cart.length > 0 ? "checkout" : "No items in cart"}
+          {cart.length > 0 ? "checkout" : "Continue shopping"}
         </Link>
       </div>
     </section>
