@@ -12,7 +12,7 @@ export default function OrderSummary() {
     return totalPrice;
   }, 0);
 
-  
+  const shippingCost = 5;
   
   return (
     <section className="md:col-span-4 bg-[#E5E6EA] max-h-fit pb-2">
@@ -29,7 +29,7 @@ export default function OrderSummary() {
         <p className="text-[#333] text-sm sm:text-base md:text-lg">
           Delivery fee
         </p>
-        <span className="font-semibold">$5</span>
+        <span className="font-semibold">${shippingCost.toFixed(2)}</span>
       </div>
       <div className="bg-black/30 h-[1px]" />
       {/* shipping info */}

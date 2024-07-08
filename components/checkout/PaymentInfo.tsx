@@ -18,10 +18,10 @@ export default function PaymentInfo() {
   const router = useRouter()
   
   const handlePayment=()=>{
-    clearCart()
+
     toast.success("Payment Succesful!")
     router.push("/")
-    
+    clearCart()
 
   }
   
