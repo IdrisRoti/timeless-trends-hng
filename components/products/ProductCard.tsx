@@ -13,8 +13,6 @@ export type ProductType = {
   price: number;
   name: string;
   quantity?: number;
-  incart?: boolean;
-  checkout?: boolean;
 };
 
 export default function ProductCard({ product }: { product: ProductType }) {
@@ -36,14 +34,14 @@ export default function ProductCard({ product }: { product: ProductType }) {
       {incart ? (
         <Link
           href='/cart'
-          className='inline-block uppercase p-[0.625rem] text-center bg-blue-900 font-medium w-full text-white mt-9 hover:opacity-60 transition duration-500'
+          className='inline-block uppercase p-[0.625rem] text-center text-sm md:text-base bg-blue-900 font-medium w-full text-white mt-9 hover:opacity-60 transition duration-500'
         >
           View cart
         </Link>
       ) : (
         <button
           onClick={() => addToCart(product)}
-          className='uppercase p-[0.625rem] text-center bg-black font-medium w-full text-white mt-9 hover:opacity-60 transition duration-500'
+          className='uppercase p-[0.625rem] text-center bg-black font-medium w-full text-sm md:text-base text-white mt-9 hover:opacity-60 transition duration-500'
         >
           add to cart
         </button>

@@ -17,10 +17,10 @@ export default function CartItem({
     <div className='mb-9'>
       <article className='flex items-center py-3 px-2'>
         {/* check icon */}
-        <input
+      { isCart &&  <input
           className='hidden lg:block bg-black mr-2 md:mr-14 w-4 h-4 cursor-pointer'
           type='checkbox'
-        />
+        />}
         {/* product image */}
         <div className='  px-3.5 md:px-7 py-2.5 md:py-5 border border-black/40 bg-white mr-2 md:mr-3.5 '>
           <div className='relative w-7 md:w-[3.5rem] h-9 md:h-[4.7rem]'>
