@@ -1,8 +1,5 @@
 "use client";
 
-import { cartData } from "@/data";
-import Image from "next/image";
-import ContinueShoppingBtn from "../ContinueShoppingBtn";
 import { useContext } from "react";
 import CartContext from "@/context/CartContext";
 import CartItem from "./CartItem";
@@ -22,7 +19,7 @@ export default function CartItems({ isCart }: { isCart: boolean }) {
           })
         ) : (
           <div>
-            <p className="text-center font-medium text-xl my-[8rem]">No items in Cart!</p>
+            <p className="text-center font-medium text-xl my-[8rem]">Nothing to see here :( <br /> Add some products to cart!</p>
           </div>
         )}
       </div>

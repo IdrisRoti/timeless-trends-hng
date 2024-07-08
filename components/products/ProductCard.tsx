@@ -25,7 +25,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
         <Image src={product.image} alt='' width={130} height={173} />
       </div>
       <div className='flex text-sm md:text-base items-start gap-[0.625rem] py-3'>
-        <p className='text-xs'>{product.subcat}</p>
+        <p className='text-xs line-clamp-1'>{product.subcat}</p>
         <div className='w-4 h-4' style={{ background: product.color }} />
         <span className='font-medium text-sm'>${product.price}</span>
       </div>
