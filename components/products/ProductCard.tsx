@@ -29,19 +29,19 @@ export default function ProductCard({ product }: { product: ProductType }) {
         <div className='w-4 h-4' style={{ background: product.color }} />
         <span className='font-medium text-sm'>${product.price}</span>
       </div>
-      <h2 className='font-bold text-sm lg:text-lg line-clamp-2'>{product.name}</h2>
+      <h2 className='font-bold text-sm lg:text-lg line-clamp-1'>{product.name}</h2>
 
       {incart ? (
         <Link
           href='/cart'
-          className='inline-block uppercase p-[0.625rem] text-center text-sm md:text-base bg-blue-900 font-medium w-full text-white mt-9 hover:opacity-60 transition duration-500'
+          className='inline-block uppercase p-[0.625rem] text-center text-xs sm:text-base bg-blue-900 font-medium w-full text-white mt-9 hover:opacity-60 transition duration-500'
         >
           View cart
         </Link>
       ) : (
         <button
           onClick={() => addToCart(product)}
-          className='uppercase p-[0.625rem] text-center bg-black font-medium w-full text-sm md:text-base text-white mt-9 hover:opacity-60 transition duration-500'
+          className='uppercase p-[0.625rem] text-center bg-black font-medium w-full text-xs sm:text-base text-white mt-9 hover:opacity-60 transition duration-500'
         >
           add to cart
         </button>
