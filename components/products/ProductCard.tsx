@@ -21,8 +21,8 @@ export default function ProductCard({ product }: { product: ProductType }) {
 
   return (
     <article className='grid-cols-subgrid'>
-      <div className='bg-[#F0F1F6] w-full aspect-square flex justify-center items-center border border-black/30 shadow-sm'>
-        <Image className='max-h-20 object-cover' src={product.image} alt={product.name} width={130} height={173} />
+      <div className='bg-[#F0F1F6] w-full aspect-square flex justify-center items-center border border-black/30 shadow-sm overflow-y-hidden'>
+        <Image className='object-cover' src={product.image} alt={product.name} width={130} height={173} />
       </div>
       <div className='flex text-sm md:text-base items-start gap-[0.625rem] py-3'>
         <p className='text-xs line-clamp-1'>{product.subcat}</p>
