@@ -43,7 +43,7 @@ export default function PaymentInfo() {
           Cardholder Name
         </p>
         <div className='mb-4 px-6'>
-          <input className='h-10 w-full p-2 focus:outline-none border focus:border-blue-600' type='text' />
+          <input placeholder='Jackson Eddy' className='h-10 w-full p-2 focus:outline-none border focus:border-blue-600' type='text' />
         </div>
       </div>
       {/* card number */}
@@ -53,6 +53,7 @@ export default function PaymentInfo() {
         </p>
         <div className='px-6 mb-4'>
           <input
+          placeholder='1111 2222 14311431'
             className='h-10 w-full p-2 focus:outline-none border focus:border-blue-600'
             type='text'
           />
@@ -65,13 +66,12 @@ export default function PaymentInfo() {
           <label className='color-[#333] mb-3 text-sm sm:text-base md:text-lg'>
             Expiration Date
           </label>
-            <input className='h-10 p-2 w-[6rem] md:w-auto focus:outline-none border focus:border-blue-600' type='text' />
+            <input placeholder='12/07/26' className='h-10 p-2 w-[6rem] sm:w-[14rem] lg:w-[8rem] focus:outline-none border focus:border-blue-600' type='text' />
         </div>
         {/* CVV */}
         <div className='flex flex-col'>
           <label className='mb-3 text-sm sm:text-base md:text-lg'>CVV</label>
-            
-            <input className='h-10 p-2 w-[6rem] md:w-auto focus:outline-none border focus:border-blue-600' type='text' />
+            <input placeholder='456' className='h-10 p-2 w-[6rem] sm:w-[14rem] lg:w-[8rem] focus:outline-none border focus:border-blue-600' type='text' />
         </div>
       </div>
       <div className='bg-black/30 h-[1px] mt-[3rem]' />
