@@ -7,14 +7,7 @@ const getProducts = async () => {
   return data;
 }
 
-// GET SINGLE PRODUCT
-// https://api.timbu.cloud/products/33b899a7e77a4eb5b7f249b567694ce2?organization_id=504dd1761d5e4c53b5f40c28ff392823&Appid=488ZQ399NFI05MT&Apikey=45484c7d98584984ba6d94a00252b27b20240712185813062278
-
-export default async function Home({
-  searchParams,
-}: {
-  searchParams: { [cat: string]: string | string[] | undefined };
-}) {
+export default async function Home() {
   const response = await getProducts()
   // console.log("DATA: ", response.data.items)
 
@@ -35,7 +28,13 @@ export default async function Home({
     }
   })
 
-  const page = searchParams.page || 1 
+  const test = response.data.items.map((item:any)=>{
+    return {
+      price: item.current_price[0].AUD[0],
+    }
+  })
+
+  console.log(test)
 
   return (
       <main className="mt-[9rem] max-w-[1440px] mx-auto px-9">

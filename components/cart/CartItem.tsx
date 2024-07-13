@@ -22,14 +22,15 @@ export default function CartItem({
           type='checkbox'
         />}
         {/* product image */}
-        <div className='  px-3.5 md:px-7 py-2.5 md:py-5 border border-black/40 bg-white mr-2 lg:mr-3.5 '>
-          <div className='relative w-7 md:w-[3.5rem] h-9 md:h-[4.7rem]'>
-            <Image className='object-cover' src={cartItem.image} alt='' fill />
+        <div className=' border border-black/40 bg-white mr-2 lg:mr-3.5 '>
+        {/* <div className='relative w-7 md:w-[3.5rem] h-9 md:h-[4.7rem]'> */}
+          <div className='relative w-[3.5rem] h-[4.7rem]'>
+            <Image className='object-cover' src={`https://api.timbu.cloud/images/${cartItem.images[0].url}`} alt='' fill />
           </div>
         </div>
         {/* product details */}
         <div className='mr-2 xl:mr-10'>
-          <p className='mb-2 text-xs xl:text-base'>{cartItem.subcat}</p>
+          <p className='mb-2 text-xs xl:text-base'>{cartItem.category}</p>
           <h2 className='text-sm lg:text-lg font-bold mb-2.5 md:mb-5'>
             {cartItem.name}
           </h2>

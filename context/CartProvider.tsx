@@ -42,7 +42,7 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
     toast.success("Product added to cart")
   };
 
-  const removeFromCart = (id: number) => {
+  const removeFromCart = (id: string) => {
     let updatedCart;
     updatedCart = cart.filter((cartItem) => cartItem.id != id);
     setCart(updatedCart);
@@ -55,13 +55,13 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
     localStorage.removeItem('cart');
   };
 
-  const increaseQty = (id: number) => {
+  const increaseQty = (id: string) => {
     let updatedCart;
     const itemInCart = cart.find((item) => item.id === id);
     if (itemInCart) {
       updatedCart = cart.map((cartItem) =>
         cartItem.id === id
-          ? { ...cartItem, quantity: cartItem.quantity! + 1 }
+          ? { ...cartItem, quantity: (cartItem.quantity! < cartItem.availaible_quantity) ? cartItem.quantity! + 1 : cartItem.quantity }
           : cartItem
       );
       setCart(updatedCart);
@@ -69,7 +69,7 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
-  const decreaseQty = (id: number) => {
+  const decreaseQty = (id: string) => {
     let updatedCart;
     const itemInCart = cart.find((item) => item.id === id);
     if (itemInCart) {

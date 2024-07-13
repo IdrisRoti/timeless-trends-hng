@@ -4,10 +4,10 @@ import { ProductType } from '@/components/products/ProductCard';
 type CartContextType = {
   cart: ProductType[];
   addToCart: (product: ProductType) => void;
-  removeFromCart: (id: number) => void;
+  removeFromCart: (id: string) => void;
   clearCart: () => void;
-  increaseQty: (id: number) => void;
-  decreaseQty: (id: number) => void;
+  increaseQty: (id: string) => void;
+  decreaseQty: (id: string) => void;
 };
 
 const CartContext = createContext<CartContextType>({
