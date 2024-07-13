@@ -1,10 +1,9 @@
-import ProductLoader from "@/components/ProductLoader";
 import Products from "@/components/products/Products";
 import axios from "axios";
 
 // GET ALL PRODUCTS
 const getProducts = async () => {
-  const data = await axios.get("https://api.timbu.cloud/products?organization_id=504dd1761d5e4c53b5f40c28ff392823&reverse_sort=false&page=1&size=30&Appid=488ZQ399NFI05MT&Apikey=45484c7d98584984ba6d94a00252b27b20240712185813062278")
+  const data = await axios.get(`https://api.timbu.cloud/products?organization_id=${process.env.ORG_ID}&reverse_sort=false&page=1&size=30&Appid=${process.env.APP_ID}&Apikey=${process.env.API_KEY}`)
   return data;
 }
 

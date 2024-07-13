@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter, useSearchParams } from "next/navigation";
 import ProductLoader from "../ProductLoader";
 import ProductCard, { ProductType } from "./ProductCard";
 import { useState } from "react";
@@ -9,28 +10,36 @@ export default function Products({
 }: {
   productsData: ProductType[];
 }) {
+  const searchParams = useSearchParams()
+  const page:any = searchParams.get("page") || 1
+  
   const ITEMS_PER_PAGE = 10;
+  
+  const [startIndex, setStartIndex] = useState((parseInt(page) - 1) * ITEMS_PER_PAGE);
+  const [endIndex, setEndIndex] = useState(ITEMS_PER_PAGE * parseInt(page));
 
-  const [startIndex, setStartIndex] = useState(0);
-  const [endIndex, setEndIndex] = useState(ITEMS_PER_PAGE);
-
+  const router = useRouter()
+  
   const handleNext = () => {
+    router.push(`?page=${parseInt(page) + 1}`)
     setStartIndex((prev) => prev + ITEMS_PER_PAGE);
     setEndIndex((prev) => prev + ITEMS_PER_PAGE);
     window.scrollTo(0, 0)
   };
   const handlePrev = () => {
+    router.push(`?page=${parseInt(page) - 1}`)
     setStartIndex((prev) => prev - ITEMS_PER_PAGE);
     setEndIndex((prev) => prev - ITEMS_PER_PAGE);
     window.scrollTo(0, 0)
   };
   // console.log(startIndex, endIndex);
+  // console.log(page);
 
   return (
     <div className="max-w-[1100px] mx-auto mt-11">
       <h2 className="text-2xl font-semibold mb-6 flex items-center gap-4">
         Page{" "}
-        <div className="bg-black w-[2rem] text-white aspect-square rounded-full flex items-center justify-center">
+        <div className="bg-black text-sm w-[2rem] text-white aspect-square rounded-full flex items-center justify-center">
           {Math.ceil(endIndex / ITEMS_PER_PAGE)}
         </div>
         <div className="text-sm">(showing {startIndex+1} to {endIndex})</div>

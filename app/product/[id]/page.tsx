@@ -6,7 +6,7 @@ import axios from "axios";
 // GET SINGLE PRODUCT
 const getProduct = async (id: string) => {
   const data = await axios.get(
-    `https://api.timbu.cloud/products/${id}?organization_id=504dd1761d5e4c53b5f40c28ff392823&Appid=488ZQ399NFI05MT&Apikey=45484c7d98584984ba6d94a00252b27b20240712185813062278`
+    `https://api.timbu.cloud/products/${id}?organization_id=${process.env.ORG_ID}&reverse_sort=false&page=1&size=30&Appid=${process.env.APP_ID}&Apikey=${process.env.API_KEY}`
   );
   return data;
 };

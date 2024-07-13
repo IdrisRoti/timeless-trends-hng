@@ -34,7 +34,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
         <div className="flex text-sm md:text-base items-start gap-[0.625rem] py-3">
           <p className="text-xs line-clamp-1 capitalize">{product.category}</p>
           <div className="w-4 h-4 bg-slate-600" />
-          <span className="text-sm font-bold">$ {product.price.toFixed(2)}</span>
+          <span className="text-sm font-bold">${product.price.toFixed(2)}</span>
         </div>
         <h2 className="font-bold text-sm lg:text-lg line-clamp-1">
           {product.name}

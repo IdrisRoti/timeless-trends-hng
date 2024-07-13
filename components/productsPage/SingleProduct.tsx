@@ -6,8 +6,9 @@ import CartContext from '@/context/CartContext';
 import Link from 'next/link';
 import { RiErrorWarningLine } from 'react-icons/ri';
 import { FaStar } from 'react-icons/fa';
-import ContinueShoppingBtn from '../ContinueShoppingBtn';
 import ImageGallery from './ImageGallery';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const SIZES = ['L', 'XL', 'XXL'];
 
@@ -23,9 +24,20 @@ export default function SingleProduct({
 
   const incart = cart.some((cartItem) => cartItem.id === productData.id);
 
+  const router = useRouter()
+
   return (
     <div className='mt-[7rem] mb-6 max-w-[70rem] mx-auto px-5 md:px-9'>
-      <ContinueShoppingBtn className='my-2' />
+      <div
+      onClick={()=>router.back()}
+        className="cursor-pointer flex items-center gap-2 my-2 w-fit px-2 py-2 hover:bg-slate-200 transition duration-300">
+        <Image
+          src={'/angle-left.png'}
+          alt='Continue shopping icon'
+          width={24}
+          height={24}
+        />
+      </div>
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 items-center '>
         <ImageGallery
           productData={productData}
