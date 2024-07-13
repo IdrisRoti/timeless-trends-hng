@@ -4,6 +4,7 @@ import Image from 'next/image';
 import React, { useContext } from 'react';
 import { ProductType } from '../products/ProductCard';
 import CartContext from '@/context/CartContext';
+import Link from 'next/link';
 
 export default function CartItem({
   cartItem,
@@ -17,23 +18,32 @@ export default function CartItem({
     <div className='mb-3'>
       <article className='flex items-center py-3 px-2'>
         {/* check icon */}
-      { isCart &&  <input
-          className='hidden md:block bg-black mr-2 xl:mr-10 w-4 h-4 cursor-pointer'
-          type='checkbox'
-        />}
+        {isCart && (
+          <input
+            className='hidden md:block bg-black mr-2 xl:mr-10 w-4 h-4 cursor-pointer'
+            type='checkbox'
+          />
+        )}
         {/* product image */}
         <div className=' border border-black/40 bg-white mr-2 lg:mr-3.5 '>
-        {/* <div className='relative w-7 md:w-[3.5rem] h-9 md:h-[4.7rem]'> */}
+          {/* <div className='relative w-7 md:w-[3.5rem] h-9 md:h-[4.7rem]'> */}
           <div className='relative w-[3.5rem] h-[4.7rem]'>
-            <Image className='object-cover' src={`https://api.timbu.cloud/images/${cartItem.images[0].url}`} alt='' fill />
+            <Image
+              className='object-cover'
+              src={`https://api.timbu.cloud/images/${cartItem.images[0].url}`}
+              alt=''
+              fill
+            />
           </div>
         </div>
         {/* product details */}
         <div className='mr-2 xl:mr-10'>
           <p className='mb-2 text-xs xl:text-base'>{cartItem.category}</p>
-          <h2 className='text-sm lg:text-lg font-bold mb-2.5 md:mb-5'>
-            {cartItem.name}
-          </h2>
+          <Link href={`/product/${cartItem.id}`}>
+            <h2 className='text-sm lg:text-lg font-bold mb-2.5 md:mb-5'>
+              {cartItem.name}
+            </h2>
+          </Link>
           <button
             onClick={() => removeFromCart(cartItem.id)}
             className='text-[#E21A1A] lg:text-base text-sm hover:opacity-80 transition duration-500'
