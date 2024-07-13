@@ -51,14 +51,14 @@ export default function SingleProduct({
           <span className='px-3 py-1 bg-red-600/40 text-red-700 w-fit rounded-full text-xs md:text-sm'>
             {productData.category}
           </span>
-          <div className='flex items-center gap-2 text-red-500'>
-            <span className=' text-xs'>
+          <div className='flex items-center gap-2'>
+          <span className="font-bold text-2xl md:text-3xl">$ {productData.price}</span>
+            <span className='text-red-500 text-xs'>
               <RiErrorWarningLine className='w-4 h-4' />
             </span>
-            <span className=''>
+            <span className='text-red-500'>
               {productData.availaible_quantity} units left
             </span>
-            {/* <span className="font-bold text-2xl">$ {productData.price}</span> */}
           </div>
           <p className='text-sm'>
             + shipping from $5 to LEKKI-AJAH (SANGOTEDO)
