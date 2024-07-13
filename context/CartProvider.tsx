@@ -12,9 +12,14 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
       ? JSON.parse(localStorage.getItem('cart')!)
       : [];
 
-  const [cart, setCart] = useState<ProductType[] | []>(cartFromLocalStorage);
+  // This is to fix the bug of users who already have the old static data in their localStorage which causes error
+  const filteredCartItems = cartFromLocalStorage.filter(
+    (cartItems: ProductType) => cartItems.desciption
+  );
 
-//To fix hydration error caused by localStorage
+  const [cart, setCart] = useState<ProductType[] | []>(filteredCartItems);
+
+  //To fix hydration error caused by localStorage
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
   useEffect(() => {
@@ -35,11 +40,11 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
       setCart(updatedCart);
       localStorage.setItem('cart', JSON.stringify(updatedCart));
     } else {
-      updatedCart = [...cart, { ...product, quantity: 1}];
+      updatedCart = [...cart, { ...product, quantity: 1 }];
       setCart(updatedCart);
       localStorage.setItem('cart', JSON.stringify(updatedCart));
     }
-    toast.success("Product added to cart")
+    toast.success('Product added to cart');
   };
 
   const removeFromCart = (id: string) => {
@@ -47,9 +52,9 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
     updatedCart = cart.filter((cartItem) => cartItem.id != id);
     setCart(updatedCart);
     localStorage.setItem('cart', JSON.stringify(updatedCart));
-    toast.success("Product removed from cart")
+    toast.success('Product removed from cart');
   };
-  
+
   const clearCart = () => {
     setCart([]);
     localStorage.removeItem('cart');
@@ -61,7 +66,13 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
     if (itemInCart) {
       updatedCart = cart.map((cartItem) =>
         cartItem.id === id
-          ? { ...cartItem, quantity: (cartItem.quantity! < cartItem.availaible_quantity) ? cartItem.quantity! + 1 : cartItem.quantity }
+          ? {
+              ...cartItem,
+              quantity:
+                cartItem.quantity! < cartItem.availaible_quantity
+                  ? cartItem.quantity! + 1
+                  : cartItem.quantity,
+            }
           : cartItem
       );
       setCart(updatedCart);
@@ -85,7 +96,7 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
       localStorage.setItem('cart', JSON.stringify(updatedCart));
     }
   };
-  
+
   console.log('CART: ', cart);
 
   if (!isMounted) {
@@ -101,7 +112,6 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
         clearCart,
         increaseQty,
         decreaseQty,
-        
       }}
     >
       {children}

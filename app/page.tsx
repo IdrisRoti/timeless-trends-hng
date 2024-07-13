@@ -29,21 +29,12 @@ export default async function Home() {
     }
   })
 
-  const test = response.data.items.map((item:any)=>{
-    return {
-      price: item.current_price[0].AUD[0],
-    }
-  })
-
-  console.log(test)
-
   return (
       <main className="mt-[9rem] max-w-[1440px] mx-auto px-9">
         <h1 className="text-black text-4xl font-semibold">
           Explore Collections
         </h1>
         <Products productsData={dataArr} />
-        <ProductLoader />
       </main>
   );
 }
