@@ -1,3 +1,4 @@
+import ProductLoader from "@/components/ProductLoader";
 import Products from "@/components/products/Products";
 import axios from "axios";
 
@@ -42,6 +43,7 @@ export default async function Home() {
           Explore Collections
         </h1>
         <Products productsData={dataArr} />
+        <ProductLoader />
       </main>
   );
 }
