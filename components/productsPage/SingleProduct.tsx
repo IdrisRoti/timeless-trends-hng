@@ -29,9 +29,10 @@ export default function SingleProduct({
           />
         </div>
         <div className="flex items-center justify-center gap-6 mt-6">
-          {productData.images.map((image) => {
+          {productData.images.map((image, i) => {
             return (
               <article
+              key={i}
                 onClick={() => setImgUrl(image.url)}
                 className={`w-[20%] border-2  rounded-xl cursor-pointer aspect-square relative overflow-hidden ${
                   image.url === imgUrl && "border-blue-800"
