@@ -40,7 +40,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
           {product.name}
         </h2>
       </Link>
-
+      
       {incart ? (
         <Link
           href="/cart"

@@ -17,7 +17,7 @@ export default function CartItems({ isCart }: { isCart: boolean }) {
         </button>
       </div>
       <div className="bg-black/30 h-[1.5px] hidden md:block" />
-      <div className="pb-2 pt-5 px-2 md:px-6 bg-[#E5E6EA] lg:max-h-[450px] lg:overflow-y-auto scroll-smooth">
+      <div className="pb-2 pt-5 px-2 md:px-6 bg-[#E5E6EA] lg:max-h-[450px] lg:min-h-[300px] lg:overflow-y-auto scroll-smooth">
         {cart.length > 0 ? (
           cart.map((cartItem, i) => {
             return <CartItem key={i} cartItem={cartItem} isCart={isCart} />;
