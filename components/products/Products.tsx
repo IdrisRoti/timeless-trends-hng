@@ -17,12 +17,14 @@ export default function Products({
   const handleNext = () => {
     setStartIndex((prev) => prev + ITEMS_PER_PAGE);
     setEndIndex((prev) => prev + ITEMS_PER_PAGE);
+    window.scrollTo(0, 0)
   };
   const handlePrev = () => {
     setStartIndex((prev) => prev - ITEMS_PER_PAGE);
     setEndIndex((prev) => prev - ITEMS_PER_PAGE);
+    window.scrollTo(0, 0)
   };
-  console.log(startIndex, endIndex);
+  // console.log(startIndex, endIndex);
 
   return (
     <div className="max-w-[1100px] mx-auto mt-11">
@@ -31,6 +33,7 @@ export default function Products({
         <div className="bg-black w-[2rem] text-white aspect-square rounded-full flex items-center justify-center">
           {Math.ceil(endIndex / ITEMS_PER_PAGE)}
         </div>
+        <div className="text-sm">(showing {startIndex+1} to {endIndex})</div>
       </h2>
 
       <section className="mb-12">
@@ -56,14 +59,14 @@ export default function Products({
           <button
             disabled={startIndex === 0}
             onClick={handlePrev}
-            className="px-3 py-2 bg-black uppercase hover:opacity-70 transition duration-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-3 py-2 bg-black uppercase hover:opacity-70 transition duration-500 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
           >
             Previous
           </button>
           <button
             disabled={endIndex >= productsData.length}
             onClick={handleNext}
-            className="px-6 py-2 bg-black uppercase hover:opacity-70 transition duration-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-6 py-2 bg-black uppercase hover:opacity-70 transition duration-500 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
           >
             Next
           </button>

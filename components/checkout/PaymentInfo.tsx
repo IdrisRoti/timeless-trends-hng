@@ -19,7 +19,7 @@ export default function PaymentInfo() {
   
   const handlePayment=()=>{
 
-    toast.success("Payment Succesful!")
+    toast.success("Order Placed! Thank You for shopping with us.")
     router.push("/")
     clearCart()
 
@@ -74,14 +74,26 @@ export default function PaymentInfo() {
         </div>
       </div>
       <div className='bg-black/30 h-[1px] mt-[3rem]' />
-      <div onClick={handlePayment} className='mt-5 mb-[1.5rem] px-4 w-full'>
-        <Link
-          href='/checkout'
+    {
+      cart.length > 0 ?(
+        <div onClick={handlePayment} className='mt-5 mb-[1.5rem] px-4 w-full'>
+        <button
           className='block font-medium text-lg text-center bg-black text-white uppercase w-full p-2.5 hover:opacity-80 duration-500'
         >
           Pay $ {(total + 5).toFixed(2)}
+        </button>
+      </div>
+      ):(
+        <div className='mt-5 mb-[1.5rem] px-4 w-full'>
+        <Link
+          href={'/'}
+          className='block font-medium text-lg text-center bg-black text-white uppercase w-full p-2.5 hover:opacity-80 duration-500'
+        >
+          Continue shopping
         </Link>
       </div>
+      )
+    }
     </section>
   );
 }

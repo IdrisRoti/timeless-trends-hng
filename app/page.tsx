@@ -18,7 +18,7 @@ export default async function Home() {
       name: item.name,
       desciption: item.description,
       id: item.id,
-      category: item.categories[0].name,
+      category: item.categories ? item.categories[0].name : "Casual Fit",
       images: item.photos.map((photo: any)=>{
         return {
           url:photo.url
